@@ -1,0 +1,17 @@
+main {
+  display: flex;
+  justify-content: center;
+}
+
+table {
+  width: auto;
+}
+
+.g-copy {
+  cursor: pointer;
+
+}
+
+.g-copy:hover {
+  text-decoration: underline;
+}
