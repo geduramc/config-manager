@@ -1,3 +1,7 @@
+body {
+  font-family: IBM, monospace;
+}
+
 main {
   display: flex;
   justify-content: center;
@@ -5,6 +9,18 @@ main {
 
 table {
   width: auto;
+}
+
+p.subtitle {
+  font-size: 12px;
+}
+
+span.key {
+  color:#4F86EA;
+}
+
+span.value {
+  color: #D7875A;
 }
 
 .g-copy {
