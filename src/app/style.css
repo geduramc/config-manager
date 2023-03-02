@@ -22,12 +22,3 @@ span.key {
 span.value {
   color: #D7875A;
 }
-
-.g-copy {
-  cursor: pointer;
-
-}
-
-.g-copy:hover {
-  text-decoration: underline;
-}
