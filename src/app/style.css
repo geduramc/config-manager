@@ -34,7 +34,7 @@ dialog{
   position: fixed;
   top: 30%;
   text-align: center;
-  background-color: #1d1d1d;
+  background-color: #212121;
   min-width: 500px;
   max-height: 300px;
   border: solid 1px;
@@ -52,4 +52,11 @@ dialog > p {
 
 .close-dialog:hover {
   text-decoration: underline;
+}
+
+div.overlay {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: #000000C9;
 }

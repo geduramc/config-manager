@@ -92,6 +92,9 @@
   }
 
   const openDialog = ({ textContent }) => {
+    const overlay = document.createElement('div')
+    overlay.classList.add('overlay')
+
     const dialog = document.createElement('dialog')
     dialog.style.display = 'block'
 
@@ -108,10 +111,11 @@
 
     dialog.appendChild(content)
     dialog.appendChild(close)
-    document.body.appendChild(dialog)
+    overlay.appendChild(dialog)
+    document.body.appendChild(overlay)
 
     close.addEventListener('click', () => {
-      dialog.remove()
+      overlay.remove()
     })
   }
 
