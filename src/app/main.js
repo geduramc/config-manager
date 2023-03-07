@@ -1,5 +1,7 @@
 ((window, document) => {
   const API_URL = '/'
+  const HIDDEN_VALUE = '********'
+
   const tbody = document.getElementsByTagName('tbody')[0]
   let configurations = null
 
@@ -57,6 +59,22 @@
     return el
   }
 
+  const viewValue = ({ el, callback = null }) => {
+    el.style.cursor = 'pointer'
+
+    el.addEventListener('mouseover', () => {
+      el.style.textDecoration = 'underline'
+    })
+
+    el.addEventListener('mouseleave', () => {
+      el.style.textDecoration = 'none'
+    })
+
+    el.addEventListener('click', () => {
+      if(callback != null && typeof callback === 'function') callback(el)
+    })
+  }
+
   const copyToClipBoard = async ({ text }) => {
     if (!navigator.clipboard) {
       const textArea = document.createElement('textarea')
@@ -71,6 +89,30 @@
       document.execCommand('copy')
       textArea.remove()
     } else await navigator.clipboard.writeText(text)
+  }
+
+  const openDialog = ({ textContent }) => {
+    const dialog = document.createElement('dialog')
+    dialog.style.display = 'block'
+
+    const content = document.createElement('p')
+    content.innerText = textContent
+    content.style.overflowY = 'auto'
+    content.style.height = 'auto'
+    content.style.maxHeight = '200px'
+    content.style.fontSize = '14px'
+
+    const close = document.createElement('label')
+    close.classList.add('close-dialog')
+    close.innerText = 'close'
+
+    dialog.appendChild(content)
+    dialog.appendChild(close)
+    document.body.appendChild(dialog)
+
+    close.addEventListener('click', () => {
+      dialog.remove()
+    })
   }
 
   fetch(`${API_URL}all`)
@@ -89,8 +131,11 @@
           })
 
           const tdValue = document.createElement('td')
-          tdValue.innerText = '****'
+          tdValue.innerText = HIDDEN_VALUE
           tr.appendChild(tdValue)
+          viewValue({ el: tdValue, callback: (el) => {
+            openDialog({ textContent: item.value })
+          }})
 
           const tdCopy = document.createElement('td')
           const copy = setCopy({ el: document.createElement('span'), callback: () => {

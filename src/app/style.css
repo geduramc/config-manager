@@ -11,6 +11,11 @@ table {
   width: auto;
 }
 
+td {
+  max-width: 300px;
+  overflow-x: auto;
+}
+
 p.subtitle {
   font-size: 12px;
 }
@@ -21,4 +26,30 @@ span.key {
 
 span.value {
   color: #D7875A;
+}
+
+dialog{
+  animation: appear 350ms ease-in 1;
+  max-width: calc(100vw - 20%);
+  position: fixed;
+  top: 30%;
+  text-align: center;
+  background-color: #1d1d1d;
+  min-width: 500px;
+  max-height: 300px;
+  border: solid 1px;
+}
+
+dialog > p {
+  text-align: justify;
+  border: solid 1px #FFFFFF12;
+  padding: 1rem;
+}
+
+.close-dialog {
+  cursor: pointer;
+}
+
+.close-dialog:hover {
+  text-decoration: underline;
 }
