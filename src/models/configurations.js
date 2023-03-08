@@ -16,6 +16,14 @@ const configurationsSchema = mongoose.Schema({
   value: {
     type: String,
     required: true,
+  },
+  expiration: {
+    type: Number,
+    required: true,
+  },
+  key: {
+    type: Number,
+    required: true,
   }
 })
 

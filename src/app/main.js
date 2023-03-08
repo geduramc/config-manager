@@ -1,6 +1,7 @@
 ((window, document) => {
   const API_URL = '/'
   const HIDDEN_VALUE = '********'
+  const IGNORE_COLUMNS = ['_id', 'value', 'expiration', 'key']
 
   const tbody = document.getElementsByTagName('tbody')[0]
   let configurations = null
@@ -127,7 +128,7 @@
         data.data.forEach(item => {
           const tr = document.createElement('tr')
           Object.getOwnPropertyNames(item).forEach(prop => {
-            if(prop != '_id' && prop != 'value'){
+            if(!IGNORE_COLUMNS.find(x => x == prop)){
               const td = document.createElement('td')
               td.innerText = item[prop]
               tr.appendChild(td)
