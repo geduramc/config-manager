@@ -1,6 +1,6 @@
 import './style.css'
 
-const API_URL = 'http://localhost:3000/'
+const API_URL = '/'
 const HIDDEN_VALUE = '********'
 const IGNORE_COLUMNS = ['_id', 'value', 'expiration', 'key']
 
