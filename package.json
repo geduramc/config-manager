@@ -3,21 +3,26 @@
   "version": "0.0.1",
   "description": "config-manager",
   "type": "module",
+  "workspaces": [
+    "api",
+    "app"
+  ],
   "scripts": {
-    "dev": "nodemon src/index.js",
-    "start": "node src/index.js"
+    "api:dev": "npm run dev --workspace=api",
+    "api:start": "npm start --workspace=api",
+    "app:dev": "npm run dev --workspace=app",
+    "app:build": "npm run build --workspace=app",
+    "build": "npm run app:build",
+    "start": "npm run api:start"
   },
   "author": "geduramc",
   "license": "ISC",
-  "dependencies": {
-    "cors": "2.8.5",
-    "dotenv": "16.0.3",
-    "express": "4.18.2",
-    "jsonwebtoken": "9.0.0",
-    "mongoose": "^7.0.0"
-  },
   "devDependencies": {
-    "morgan": "1.10.0",
-    "nodemon": "2.0.20"
+    "standard": "^17.0.0"
+  },
+  "eslintConfig": {
+    "extends": [
+      "./node_modules/standard/eslintrc.json"
+    ]
   }
 }

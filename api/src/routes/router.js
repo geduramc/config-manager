@@ -1,25 +1,25 @@
 import express from 'express'
-import path from 'node:path'
 import { generalResponse } from '../utils/generalResponse.js'
 import { service } from '../services/service.js'
+import path from 'node:path'
 
 export function router (app) {
-  app.use('/', express.static(process.cwd() + '/src/app/'))
+  app.use('/', express.static(path.resolve('../app/dist')))
 
   app.get('/all', (_, res) => {
     service.getAll()
-    .then(data => {
-      if(data.length <= 0) res.status(204)
-      res.send(generalResponse.ok(data))
-    }).catch((err) => res.send(generalResponse.error(err)))
+      .then(data => {
+        if (data.length <= 0) res.status(204)
+        res.send(generalResponse.ok(data))
+      }).catch((err) => res.send(generalResponse.error(err)))
   })
 
   app.get('/owner/:owner', (req, res) => {
     service.getByOwner({ ownerStr: req.params.owner })
-    .then(data => {
-      if(data.length <= 0) res.status(204)
-      res.send(generalResponse.ok(data))
-    }).catch((err) => res.send(generalResponse.error(err)))
+      .then(data => {
+        if (data.length <= 0) res.status(204)
+        res.send(generalResponse.ok(data))
+      }).catch((err) => res.send(generalResponse.error(err)))
   })
 
   app.get('/schema/:owner/:schema', (req, res) => {
@@ -27,10 +27,10 @@ export function router (app) {
       ownerStr: req.params.owner,
       schemaStr: req.params.schema
     })
-    .then(data => {
-      if(data.length <= 0) res.status(204)
-      res.send(generalResponse.ok(data))
-    }).catch((err) => res.send(generalResponse.error(err)))
+      .then(data => {
+        if (data.length <= 0) res.status(204)
+        res.send(generalResponse.ok(data))
+      }).catch((err) => res.send(generalResponse.error(err)))
   })
 
   app.get('/name/:owner/:schema/:name', (req, res) => {
@@ -39,10 +39,10 @@ export function router (app) {
       schemaStr: req.params.schema,
       nameStr: req.params.name
     })
-    .then(data => {
-      if(data.length <= 0) res.status(204)
-      res.send(generalResponse.ok(data))
-    }).catch((err) => res.send(generalResponse.error(err)))
+      .then(data => {
+        if (data.length <= 0) res.status(204)
+        res.send(generalResponse.ok(data))
+      }).catch((err) => res.send(generalResponse.error(err)))
   })
 
   app.use((_req, res, _next) => {
