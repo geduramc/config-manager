@@ -15,14 +15,14 @@ app.use(morgan('dev'))
 app.use(express.json())
 app.use(cors())
 
-//routes
+// routes
 router(app)
 
-//mongoose
+// mongoose
 mongoose.connect(process.env.MONGODB_URI)
-  .then(() => console.log('mongo_db conected!'))
-  .catch(err => console.error(err))
+  .then(() => console.log('✅ mongo_db conected!'))
+  .catch(err => console.error(`❌ ${err}`))
 
 app.listen(app.get('port'), () => {
-  console.log(`[port: ${app.get('port')}] server running...`)
+  console.log(`🚀 [port: ${app.get('port')}] server running...`)
 })
