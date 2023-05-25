@@ -118,6 +118,12 @@ const openDialog = ({ textContent }) => {
   close.addEventListener('click', () => {
     overlay.remove()
   })
+
+  document.addEventListener('keydown', (event) => {
+    if (event.key === 'Escape') {
+      if (dialog.style.display === 'block') overlay.remove()
+    }
+  })
 }
 
 fetch(`${API_URL}all`)
