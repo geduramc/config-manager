@@ -1,7 +1,7 @@
 import express from 'express'
+import path from 'node:path'
 import { generalResponse } from '../utils/generalResponse.js'
 import { service } from '../services/service.js'
-import path from 'node:path'
 
 export function router (app) {
   app.use('/', express.static(path.resolve('../app/dist')))
