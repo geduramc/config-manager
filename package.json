@@ -1,5 +1,6 @@
 {
   "name": "config-manager",
+  "private": true,
   "version": "0.0.1",
   "description": "config-manager",
   "type": "module",
