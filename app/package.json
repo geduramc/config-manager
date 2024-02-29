@@ -9,6 +9,9 @@
     "preview": "vite preview"
   },
   "author": "geduramc",
+  "dependencies": {
+    "@geduramc/copy-clipboard-element": "^1.0.8"
+  },
   "devDependencies": {
     "vite": "^4.2.0"
   }
