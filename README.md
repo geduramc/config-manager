@@ -2,8 +2,11 @@
   <img src="https://user-images.githubusercontent.com/26848451/221998944-4aee6ec9-6621-45b0-acb0-38f82781a647.png" />
 </p>
 
-## API
+## APP
 https://config.geduramc.com
+
+## API
+https://api.geduramc.com/config-manager
 
 Endpoints:
 

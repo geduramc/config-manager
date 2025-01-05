@@ -1,7 +1,7 @@
 import './style.css'
 import { copy } from '@geduramc/copy-clipboard-element'
 
-const API_URL = '/'
+const API_URL = 'https://api.geduramc.com/config-manager/'
 const HIDDEN_VALUE = '********'
 const IGNORE_COLUMNS = ['_id', 'value', 'expiration', 'key']
 
